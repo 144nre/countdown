@@ -21,9 +21,11 @@ session = requests.Session()
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36',
            'X-Requested-With': 'OnlineShopping.WebApp'}
 
-if 
+serverPort = 80
+
+if "PORT" in os.environ:
+    serverPort = os.environ["PORT"]
 hostName = "0.0.0.0"
-serverPort = 18081
 
 host = "127.0.0.1"
 port = 8889
