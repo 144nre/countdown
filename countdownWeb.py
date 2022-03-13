@@ -3,7 +3,6 @@ import http.cookies
 from math import prod
 import time
 import datetime
-from tkinter import W
 from urllib.parse import urlparse, parse_qs
 import json
 import traceback
@@ -13,6 +12,7 @@ import re
 import urllib
 import math
 import uuid
+import os
 
 def capitalize(str):
     return re.sub("(?:[0-9A-Za-z])\S*", lambda e: e[0][0].upper() + e[0][1:], str)
@@ -21,6 +21,7 @@ session = requests.Session()
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36',
            'X-Requested-With': 'OnlineShopping.WebApp'}
 
+if 
 hostName = "0.0.0.0"
 serverPort = 18081
 
@@ -1260,7 +1261,7 @@ class MyServer(BaseHTTPRequestHandler):
                 self.send_response(301)
                 cookie = http.cookies.SimpleCookie()
                 cookie["listId"] = post_data["listId"][0]
-                expires = datetime.datetime.utcnow() + datetime.timedelta(days=7)
+                expires = datetime.datetime.utcnow() + datetime.timedelta(days=30)
                 cookie["listId"]["expires"] = expires.strftime("%a, %d %b %Y %H:%M:%S GMT")
                 for value in cookie.values():
                     self.send_header("Set-Cookie", value.OutputString())
